@@ -45,10 +45,13 @@
 
 <div id='map'></div>
 
-<div class='map-overlay top'>
+
+  <div class='map-overlay top'>
     <div class='map-overlay-inner'>
         <label>HOLC 1939 <span id='slider-value'>100%</span></label>
         <input id='slider' type='range' min='0' max='100' step='0' value='100' />
+      <label>Watts <span id='slider-value1'>100%</span></label>
+        <input id='slider1' type='range' min='0' max='100' step='0' value='100' />
     </div>
 </div>
 
@@ -62,27 +65,7 @@ var map = new mapboxgl.Map({
     maxZoom: 13,
     zoom: 9.5
 });
-var slider = document.getElementById('slider');
-var sliderValue = document.getElementById('slider-value');
-map.on('load', function() {
-    map.addLayer({
-        "id": "HOLC",
-        "source": {
-            "type": "raster",
-            "url": "mapbox://andy-rutkowski.cbzfjftf"
-        },
-        "type": "raster"
-    });
-    slider.addEventListener('input', function(e) {
-        // Adjust the layers opacity. layer here is arbitrary - this could
-        // be another layer name found in your style or a custom layer
-        // added on the fly using `addSource`.
-        map.setPaintProperty('HOLC', 'raster-opacity', parseInt(e.target.value, 10) / 100);
-        // Value indicator
-        sliderValue.textContent = e.target.value + '%';
-    });
-});
-    map.on('click', function(e) {
+   map.on('click', function(e) {
   var features = map.queryRenderedFeatures(e.point, {
     layers: ['39GreenBook'] // replace this with the name of the layer
   });
@@ -110,7 +93,60 @@ map.on('load', function() {
     .setLngLat(feature.geometry.coordinates)
     .addTo(map);
 });
+ 
+  
+       var slider = document.getElementById('slider', 'slider1');
+var sliderValue = document.getElementById('slider-value', 'slider-value1');
+map.on('load', function() {
+  
+  
+  map.addLayer
+   ;
+     slider.addEventListener('input', function(e) {
+        // Adjust the layers opacity. layer here is arbitrary - this could
+        // be another layer name found in your style or a custom layer
+        // added on the fly using `addSource`.
+        map.setPaintProperty('HOLC', 'raster-opacity', parseInt(e.target.value, 10) / 100);
+        // Value indicator
+        sliderValue.textContent = e.target.value + '%';
+    });
+ 
+  ({
+    
+        "id": "HOLC",
+        "source": {
+            "type": "raster",
+            "url": "mapbox://andy-rutkowski.a0p1p0hr"
+        },
+        "type": "raster"
+    
+    })
+  
+   map.addLayer
+   ;
+  
+slider1.addEventListener('input', function(e) {
+        // Adjust the layers opacity. layer here is arbitrary - this could
+        // be another layer name found in your style or a custom layer
+        // added on the fly using `addSource`.
+        map.setPaintProperty('Watts', 'raster-opacity', parseInt(e.target.value, 10) / 100);
+        // Value indicator
+        sliderValue1.textContent = e.target.value + '%';
+    });
+ });
+  ({
+    
+    "id":"Watts",
+        "source": {
+            "type": "raster",
+            "url": "mapbox://andy-rutkowski.0tqu2dvy"
+        },
+        "type": "raster"
+     })
+   
+
 </script>
 
 </body>
 </html>
+

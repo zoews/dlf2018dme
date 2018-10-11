@@ -6,9 +6,11 @@ There are two csv files. Both of these files were created by Jose Cardona, stude
 * 39GreenBook.csv - Los Angeles locations from the 1939 Greenbook. 
 * 47GreenBook.csv - Los Angeles locations from the 1939 Greenbook
 
-# Geojson
+# geojson
+There is one geoson file. This geojson contains boundary information that corresponds to the Homeowner's Loan Corporation maps from 1939. The file contains boundaries with associated data letting you know what the grade is for each boundary. The file was downloaded from the American Panorama Redlining Project which has processed this data. 
 
-
+* HOLC_LosAngeles.geojson - downloaded originally from American Panorama project
+* [American Panorama Redlining website](https://dsl.richmond.edu/panorama/redlining/)
 
 # .GS 
 

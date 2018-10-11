@@ -12,6 +12,10 @@ There are two csv files. Both of these files were created by Jose Cardona, stude
 
 # .GS 
 
-This .gs file is a google script that lets you geocode addressed in Google Sheets. The orginal script and instructions can be found here:
+This .gs file is a google script that lets you geocode addressed in Google Sheets. 
+
+* geocodingmacroforgooglesheets.gs
+
+The orginal script and instructions can be found here:
 
 * [Geocoding Script](https://github.com/nuket/google-sheets-geocoding-macro)

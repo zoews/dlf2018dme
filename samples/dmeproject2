@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>DLF Project Map</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+        #info {
+          text-align: center;
+            position: fixed;
+    bottom: 0;
+    left: 0;
+            padding: 10px;
+            background-color: rgba(140, 114, 114, .25);
+            width:320px
+        }
+    </style>
+</head>
+<body>
+
+<style>
+.map-overlay {
+    font:bold 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    position: relative;
+    width: 25%;
+    top: 0;
+    left: 0;
+    padding: 10px;
+}
+.map-overlay .map-overlay-inner {
+    background-color: #FDF6EE;
+    box-shadow:0 1px 2px rgba(0, 0, 0, 0.20);
+    border-radius: 3px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.map-overlay label {
+    display: block;
+    margin: 0 0 10px;
+}
+.map-overlay input {
+    background-color: transparent;
+    display: inline-block;
+    width: 100%;
+    position: relative;
+    margin: 0;
+    cursor: ew-resize;
+}
+</style>
+
+<div id='map'></div>
+
+
+  <div class='map-overlay top'>
+    <div class='map-overlay-inner'>
+        <label>HOLC 1939</label>
+        <input id='slider' type='range' min='0' max='100' step='0' value='100' />
+      <label>Watts</label>
+        <input id='slider1' type='range' min='0' max='100' step='0' value='100' />
+    </div>
+</div>
+
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoiYW5keS1ydXRrb3dza2kiLCJhIjoiWDJRMFVUWSJ9.iHl6Cf0M79wmHQlfP6Bk8Q';
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/andy-rutkowski/cjmyg19qb2t712rmq2pvldq00',
+    center: [-118.545829, 33.989976],
+    minZoom: 9.5,
+    maxZoom: 13,
+    zoom: 9.5
+});
+ 
+
+  
+       var slider = document.getElementById('slider', 'slider1');
+var sliderValue = document.getElementById('slider-value', 'slider-value1');
+map.on('load', function() {
+  
+  
+  map.addLayer
+   ;
+     slider.addEventListener('input', function(e) {
+        // Adjust the layers opacity. layer here is arbitrary - this could
+        // be another layer name found in your style or a custom layer
+        // added on the fly using `addSource`.
+        map.setPaintProperty('HOLC1939', 'raster-opacity', parseInt(e.target.value, 10) / 100);
+        // Value indicator
+   
+    });
+ 
+  ({
+    
+        "id": "HOLC1939",
+        "source": {
+            "type": "raster",
+            "url": "mapbox://andy-rutkowski.a0p1p0hr"
+        },
+        "type": "raster"
+    
+    })
+  
+   map.addLayer
+   ;
+  
+slider1.addEventListener('input', function(e) {
+        // Adjust the layers opacity. layer here is arbitrary - this could
+        // be another layer name found in your style or a custom layer
+        // added on the fly using `addSource`.
+        map.setPaintProperty('Watts', 'raster-opacity', parseInt(e.target.value, 10) / 100);
+        // Value indicator
+    });
+ });
+  ({
+    
+    "id":"Watts",
+        "source": {
+            "type": "raster",
+            "url": "mapbox://andy-rutkowski.0tqu2dvy"
+        },
+        "type": "raster"
+     })
+        map.on('click', function(e) {
+  var features = map.queryRenderedFeatures(e.point, {
+    layers: ['47GreenBook'] // replace this with the name of the layer
+  });
+  if (!features.length) {
+    return;
+  }
+  var feature = features[0];
+  var popup = new mapboxgl.Popup({ offset: [0, -15] })
+    .setLngLat(feature.geometry.coordinates)
+    .setHTML('<h3>' + feature.properties.Type + '</h3><p>' + feature.properties.Name + '</p>')
+    .setLngLat(feature.geometry.coordinates)
+    .addTo(map);
+});
+
+</script>
+  <div id="info">
+    
+    <h2>Digital Mapping Ecosystems Example Map</h1>
+
+    <p>This map has two historical maps with a slider. In addition, one layer from the Greenbook has been added.</p>
+    </div>
+
+</body>
+</html>

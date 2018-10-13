@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+//Look for the instructions throughout the HTML document
 <html>
 <head>
     <meta charset='utf-8' />
@@ -54,17 +55,19 @@
 
 <div id='map'></div>
 
-
+ //You can label these however you want.
   <div class='map-overlay top'>
     <div class='map-overlay-inner'>
         <label>HOLC 1939</label>
         <input id='slider' type='range' min='0' max='100' step='0' value='100' />
-      <label>Watts</label>
+      <label>Watts 1965</label>
         <input id='slider1' type='range' min='0' max='100' step='0' value='100' />
     </div>
 </div>
 
 <script>
+  //The accessToken is a default one from Mapbox. You can create unique ones for different maps that you work on. 
+  //Change the style to your unique style url.
 mapboxgl.accessToken = 'pk.eyJ1IjoiYW5keS1ydXRrb3dza2kiLCJhIjoiWDJRMFVUWSJ9.iHl6Cf0M79wmHQlfP6Bk8Q';
 var map = new mapboxgl.Map({
     container: 'map',
@@ -81,7 +84,8 @@ var map = new mapboxgl.Map({
 var sliderValue = document.getElementById('slider-value', 'slider-value1');
 map.on('load', function() {
   
-  
+  //In the section below replace the "id" info with the name that you gave your HOLC map. You can then replace all instances of that name in order to stay consistent. For example in the map.setPaintProperty replace 'HOLC1939' with your name.
+  //The "url" will be replaced by a Map ID. You get the Map ID by going back to the tileset page. If  you click on the map on that tileset page you will get the metadata for the map including the Map ID.
   map.addLayer
    ;
      slider.addEventListener('input', function(e) {
@@ -89,8 +93,6 @@ map.on('load', function() {
         // be another layer name found in your style or a custom layer
         // added on the fly using `addSource`.
         map.setPaintProperty('HOLC1939', 'raster-opacity', parseInt(e.target.value, 10) / 100);
-        // Value indicator
-   
     });
  
   ({
@@ -124,6 +126,7 @@ slider1.addEventListener('input', function(e) {
         },
         "type": "raster"
      })
+  //In this section you will just want to replace the layers name with whatever name you gave your GreenBook layer.
         map.on('click', function(e) {
   var features = map.queryRenderedFeatures(e.point, {
     layers: ['47GreenBook'] // replace this with the name of the layer

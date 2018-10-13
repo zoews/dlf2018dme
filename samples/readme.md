@@ -3,8 +3,11 @@ These are various HTML samples that pull in MapBox data and create interactive m
 #### DMEPROJECT: 
 Features two historical basemap layers each with their own individual transparency slider. Two datasets have been pulled in as well each with simple pop-up windows. Includes, an information box with a project description.
 
-### DMEPROJECT2:
+#### DMEPROJECT2:
 Features two historical basemap layers each with their own individual transparency slider. One dataset has been pulled in with simple pop-up windows. Includes, an information box with a project description.
+
+#### CARTOembed
+This is taking the embed code from a CARTO project and adding a title with a description.
 
 * [Mapbox Documentation](https://www.mapbox.com/mapbox-gl-js/api/)
 * [Mapbox Examples](https://www.mapbox.com/mapbox-gl-js/example/simple-map/)

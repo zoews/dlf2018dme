@@ -27,3 +27,11 @@ This .gs file is a google script that lets you geocode addressed in Google Sheet
 The orginal script and instructions can be found here:
 
 * [Geocoding Script](https://github.com/nuket/google-sheets-geocoding-macro)
+
+# Geotiffs 
+Historical geotiff maps are too large to store in GitHub. Please go to this Google Drive where you will find two geotiffs that are zipped and ready for download.
+
+* [GoogleDrive with Geotiffs](https://drive.google.com/drive/folders/1rcNUaveNhW7ODTSduibJO4KIMvmPG2OZ?usp=sharing)
+* HOLCCentralLA.zip
+* WattsCurfew.zip
+

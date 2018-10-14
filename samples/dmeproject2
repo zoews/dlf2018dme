@@ -135,6 +135,7 @@ slider1.addEventListener('input', function(e) {
   var popup = new mapboxgl.Popup({ offset: [0, -15] })
     .setLngLat(feature.geometry.coordinates)
     .setHTML('<h3>' + feature.properties.Type + '</h3><p>' + feature.properties.Name + '</p>')
+  .setLngLat(feature.geometry.coordinates)
     .addTo(map);
 });
 

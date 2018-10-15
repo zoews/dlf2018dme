@@ -71,7 +71,7 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiYW5keS1ydXRrb3dza2kiLCJhIjoiWDJRMFVUWSJ9.iHl6Cf0M79wmHQlfP6Bk8Q';
 var map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/andy-rutkowski/cjn89ej2l1soq2tn2fw9khlbx',
+    style: 'mapbox://styles/zmw25/cjn9ik5lk441b2rnrhbuxkcot',
     center: [-118.545829, 33.989976],
     minZoom: 9.5,
     maxZoom: 13,
@@ -142,7 +142,7 @@ slider1.addEventListener('input', function(e) {
 </script>
   <div id="info">
     
-    <h2>Digital Mapping Ecosystems Example Map</h1>
+    <h2>Digital Mapping Ecosystems, by Zoë, it's all happening!!</h1>
 
     <p>This map has two historical maps with a slider. In addition, one layer from the Greenbook has been added.</p>
     </div>
